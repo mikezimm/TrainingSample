@@ -6,16 +6,16 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = {
-  mode: 'development',
+  mode: 'development', // switch to production when you package for production - impacts final size of package you import
   target: 'web',
   entry: {
-    myServices: path.resolve(__dirname, 'src/index.ts')
+    myServices: path.resolve(__dirname, 'src/index.ts')  // myServices is the name of the library - external reference name:  myServices.js
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js",
+    filename: "[name].js",  // [name] Comes from entry
     publicPath: "/assets/",
-    library: { type: "amd" },
+    library: { type: "amd" },  // Used by SPFx
     clean: true
   },
   devtool: 'inline-source-map',
@@ -42,7 +42,7 @@ module.exports = {
       type: 'asset/resource'
     }]
   },
-  externals: {
+  externals: { // Read webpack documentation - do not want to bundle these into the package
     "react": "React",
     "lodash-es": "lodash-es/*"
   },
