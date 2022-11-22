@@ -1,5 +1,5 @@
 {
-  "name": "sample-library",
+  "name": "@mikezimm/sample-library",
   "version": "1.0.0",
   "description": "Sample Library",
   "license": "UNLICENSED",
@@ -35,7 +35,8 @@
     "webpack": "^5.74.0",
     "webpack-bundle-analyzer": "^4.6.1",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.0"
+    "webpack-dev-server": "^4.11.0",
+    "@types/lodash-es": "^4.17.21"
   },
   "files": [
     "/lib"

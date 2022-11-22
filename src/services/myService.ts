@@ -1,8 +1,10 @@
+import * as React from 'react';
 //Can add specific known structure here to create a minimal version for typing
 declare type PageContext = {};
 
 export interface IMyService {
   Init: (pageContext: PageContext) => void;
+  getListItems : ( listname: string ) => string;
 }
 
 export class MyService implements IMyService {
@@ -32,6 +34,11 @@ export class MyService implements IMyService {
   //   this._SP.web.lists.getByTitle( listname )
   // }
 
+  public getListItems( listname: string ) {
+    return listname;
+  }
+
+
 }
 
 // This turns it into a global instance called myServices
@@ -39,3 +46,7 @@ export class MyService implements IMyService {
 // If you only pass in pageContext in on init, then publics become reusable.
 // Comment this out if you passed in more in the on init that is specific to a web part or use case.
 export const myService: IMyService = new MyService();
+
+
+//Can have both, need to import React.
+export const MyServiceContext = React.createContext(new MyService());
